@@ -1,0 +1,26 @@
+Р#include <stdio.h>
+
+int count_equal_divisors(int n) {
+    int equal_divisors_count = 0;
+
+    // Перебираємо можливі значення m від 1 до n
+    for (int m = 1; m <= n; m++) {
+        // Перевіряємо умову n % m == n / m
+        if (n % m == n / m) {
+            equal_divisors_count++;
+        }
+    }
+
+    return equal_divisors_count;
+}
+
+int main() {
+    int n;
+    printf("Введіть натуральне число n: ");
+    scanf("%d", &n);
+
+    int result = count_equal_divisors(n);
+    printf("Кількість рівних дільників числа %d: %d\n", n, result);
+
+    return 0;
+}
