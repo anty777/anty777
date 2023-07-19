@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Структура, що представляє автомобіль
+typedef struct {
+    char make[50]; // Марка автомобіля
+    char model[50]; // Модель автомобіля
+    int year; // Рік випуску автомобіля
+    float price; // Ціна оренди за день
+} Car;
+
+// Функція для створення нового автомобіля
+Car create_car(const char* make, const char* model, int year, float price) {
+    Car car;
+    strcpy(car.make, make);
+    strcpy(car.model, model);
+    car.year = year;
+    car.price = price;
+    return car;
+}
+
+// Функція для виведення інформації про автомобіль
+void print_car(const Car* car) {
+    printf("Марка: %s\n", car->make);
+    printf("Модель: %s\n", car->model);
+    printf("Рік випуску: %d\n", car->year);
+    printf("Ціна оренди за день: %.2f\n", car->price);
+}
+
+int main() {
+    // Створення декількох автомобілів
+    Car car1 = create_car("Honda", "Civic", 2020, 50.0);
+    Car car2 = create_car("Toyota", "Corolla", 2019, 45.0);
+    Car car3 = create_car("Ford", "Mustang", 2021, 80.0);
+
+    // Виведення інформації про автомобілі
+    printf("Інформація про автомобіль 1:\n");
+    print_car(&car1);
+    printf("\n");
+
+    printf("Інформація про автомобіль 2:\n");
+    print_car(&car2);
+    printf("\n");
+
+    printf("Інформація про автомобіль 3:\n");
+    print_car(&car3);
+    printf("\n");
+
+    return 0;
+}
